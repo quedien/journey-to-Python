@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея - Путешествие в Python</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="site-header">
+        <div class="header-left">
+            <div class="logo">
+                <i class="fas fa-code"></i>
+                <span>Путешествие в Python</span>
+            </div>
+            <div class="header-description">
+                <h2>Фотогалерея</h2>
+                <p>Коллекция изображений по теме: <span class="theme-badge">Программирование</span></p>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="gallery.html" class="active">Галерея</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="gallery-container">
+        <div class="controls-panel">
+            <div class="stats">
+                <span class="stat-item">
+                    <i class="fas fa-image"></i>
+                    Изображений: <span id="count">0</span>
+                </span>
+                <span class="stat-item">
+                    <i class="fas fa-heart"></i>
+                    Всего лайков: <span id="total-likes">0</span>
+                </span>
+            </div>
+            
+            <div class="view-controls">
+                <button id="grid-view" class="view-btn active">
+                    <i class="fas fa-th"></i> Сетка
+                </button>
+                <button id="list-view" class="view-btn">
+                    <i class="fas fa-list"></i> Список
+                </button>
+            </div>
+        </div>
+        
+        <div class="filters">
+            <h3><i class="fas fa-filter"></i> Фильтры:</h3>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Все</button>
+                <button class="filter-btn" data-filter="programming">Программирование</button>
+                <button class="filter-btn" data-filter="development">Разработка</button>
+                <button class="filter-btn" data-filter="modern">Современный мир</button>
+            </div>
+        </div>
+
+        <!-- Галерея с использованием css grid -->
+        <div class="gallery-grid" id="image-gallery">
+            <!-- Карточка 1 -->
+            <article class="image-card photo" data-category="programming">
+                <div class="card-image">
+                    <img src="images/image_1.jpg" 
+                        alt="Палитра программиста"
+                        class="gallery-img"
+                        loading="lazy">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="1">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">0</span>
+                        </button>
+                        <button class="zoom-btn">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Мир программиста</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> 12 февраля 2024</p>
+                    <p class="image-description">Палитра программиста состоит из магии фронтенда (HTML/CSS/JS), мощи бэкенда (Python), классики системного программирования (C++), а также вечного фундамента — бинарного кода, на котором всё держится. Языках, на которых мы говорим с машинами.</p>
+                    <div class="image-tags">
+                        <span class="tag">Разработка</span>
+                        <span class="tag">Программирование</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Карточка 2 -->
+            <article class="image-card photo" data-category="development">
+                <div class="card-image">
+                    <img src="images/image2.jpg" 
+                        alt="Разработки мобильного приложения"
+                        class="gallery-img"
+                        loading="lazy">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="2">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">0</span>
+                        </button>
+                        <button class="zoom-btn">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Разработка цифрового продукта</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> 7 мая 2024</p>
+                    <p class="image-description">От идеи до запуска: путь проекта через проектирование, дизайн, разработку и финальный релиз. Каждый этап важен для создания качественного продукта.</p>
+                    <div class="image-tags">
+                        <span class="tag">Программирование</span>
+                        <span class="tag">Разработка</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Карточка 3 -->
+            <article class="image-card photo" data-category="modern">
+                <div class="card-image">
+                    <img src="images/image__3.jpg" 
+                        alt="Кибербезопасность"
+                        class="gallery-img"
+                        loading="lazy">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="3">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">0</span>
+                        </button>
+                        <button class="zoom-btn">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Кибербезопасность</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> 24 июня 2025</p>
+                    <p class="image-description">Безопасность — это не функция, которую добавляют в конце. Это фундамент, с которого начинается надёжный код. Каждый программист — первая линия защиты.</p>
+                    <div class="image-tags">
+                        <span class="tag">Программирование</span>
+                        <span class="tag">Современный мир</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Карточка 4 -->
+            <article class="image-card photo" data-category="development">
+                <div class="card-image">
+                    <img src="images/image___4.jpg" 
+                        alt="Совместная работа"
+                        class="gallery-img"
+                        loading="lazy">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="4">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">0</span>
+                        </button>
+                        <button class="zoom-btn">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Командная работа</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> 16 августа 2024</p>
+                    <p class="image-description">Один разработчик пишет код, а команда создаёт продукт. Совместная работа, обсуждения и общая цель превращают набор строк в надёжное и живое решение.</p>
+                    <div class="image-tags">
+                        <span class="tag">Разработка</span>
+                        <span class="tag">Программирование</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Карточка 5 -->
+            <article class="image-card photo" data-category="modern">
+                <div class="card-image">
+                    <img src="images/image_5.jpg" 
+                        alt="Интернет вещей"
+                        class="gallery-img"
+                        loading="lazy">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="5">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">0</span>
+                        </button>
+                        <button class="zoom-btn">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Мир информационных технологий</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> 30 октября 2024</p>
+                    <p class="image-description">Интернет вещей (гаджеты, датчики, облачные сервисы) — сеть умных устройств, которые работают вместе, чтобы сделать жизнь проще. С ними вы контролируете дом, экономите время — всё в одном клике!</p>
+                    <div class="image-tags">
+                        <span class="tag">Современный мир</span>
+                        <span class="tag">Разработка</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Карточка 6 -->
+            <article class="image-card photo" data-category="modern">
+                <div class="card-image">
+                    <img src="images/image6.jpg" 
+                        alt="Искусственный интеллект в помощь"
+                        class="gallery-img"
+                        loading="lazy">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="6">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">0</span>
+                        </button>
+                        <button class="zoom-btn">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Искусственный интеллект</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> 11 декабря 2024</p>
+                    <p class="image-description">Иногда сложно начать с чистого листа. ИИ может предложить структуру, набросать прототип или представить идею — а программист уже доведёт её до ума.</p>
+                    <div class="image-tags">
+                        <span class="tag">Разработка</span>
+                        <span class="tag">Современный мир</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <aside class="gallery-info">
+            <h3><i class="fas fa-lightbulb"></i> Интересный факт</h3>
+            <p>В 1947 году в Гарвардском университете программисты нашли мотылька, застрявшего в реле компьютера Mark II. С тех пор ошибки в коде называют «багами» (от англ. bug — жук).</p>
+        </aside>
+    </main>
+
+    <footer class="flex-footer">
+        <div class="footer-col">
+            <h4>О сайте</h4>
+            <p>Путешествие в Python - изучение языка программирования с нуля</p>
+        </div>
+        <div class="footer-col">
+            <h4>Навигация</h4>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="gallery.html">Галерея</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Контакты</h4>
+            <p>Email: daianna.berestova@yandex.ru</p>
+        </div>
+        <div class="footer-copyright">
+            <p>© Диана, студентка 1 курса, 2026</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
